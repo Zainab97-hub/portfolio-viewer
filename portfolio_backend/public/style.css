@@ -1,0 +1,238 @@
+/* style */
+
+body {
+    background-color: #e0e0e0; /* Hintergrundfarbe der Seite */
+}
+
+nav {
+    background-color: #000; /* Weiße Hintergrundfarbe für das Navigationsmenü */
+    color: white; /* Schwarzer Text */
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 50px;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav li a {
+    color: white; /* Schwarzer Text */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 8px;
+}
+
+nav li a:hover {
+    color: #666666; /* Schwarzer Text */
+    text-decoration: none;
+}
+
+.avatar-ctn {
+    background-color: orange;
+    text-align: center;
+}
+
+.avatar {
+    width: 65%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.card {
+    border-radius: 15px;
+    background-color: #ffffff; /* Weiße Hintergrundfarbe für die Karten */
+    width: 60%; /* Gleiche Breite wie card-body */
+    margin: 0 auto; /* Zentriert die Karte horizontal */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ermöglicht die relative Positionierung von card-header und card-body */
+}
+
+.card-header {
+    text-align: center;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000; /* Schwarzer Text *
+}
+
+.card-body {
+    background-color: #f8f9fa; /* Hellgraue Hintergrundfarbe für den Kartenkörper */
+    padding: 20px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #000000; /* Schwarzer Text */
+}
+
+.form-control {
+    border-radius: 24px;
+    font-size: 16px;
+    border: 2px solid #000000; /* Schwarzer Rand */
+    text-align: center;
+    padding: 10px;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 2px solid #000;
+  border-radius: 24px;
+  outline: none;
+  font-size: 16px;
+  text-align: center;
+}
+
+input::placeholder {
+  color: #aaa;
+  text-align: center;
+}
+
+
+.btn-primary {
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 24px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #666666; /* Hellere Schwarze Hintergrundfarbe beim Hover */
+}
+#message {
+    margin-top: 15px;
+    color: red;
+  }
+
+  
+.navbtn{
+    z-index: 4000;
+    position: absolute;
+    top: 0;
+    right: 40px;
+    font-size:50px;
+    cursor:pointer;
+    color: white;
+    font-weight: bold;
+    /* text-shadow: #1e2b37 1px 1px 5px; */
+    -webkit-app-region: no-drag;
+    }
+    .navbtn:hover{
+    font-weight: bolder;
+    }
+    .navbtn:active{
+    transform: scale(0.95);
+    }
+    
+    .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    text-align: center;
+    background-image: linear-gradient(30deg, #000000 20%, #272626 80%);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 10%;
+    -webkit-app-region: no-drag;
+    }
+    
+    .sidenav span{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+    white-space: nowrap;
+    
+    }
+    .menu{
+    padding-top: 10px;
+    padding-bottom: 12px;
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+    white-space: nowrap;
+    }
+    .menu:hover{
+        color: #aaa;
+    }
+    
+    .sidenav span:hover {
+    color: #aaa;
+    }
+    
+    .sidenav .closebtn {
+    text-align: left;
+    z-index: 3000;
+    position: absolute;
+    top: 300px;
+    left: 0;
+    font-size: 36px;
+    color: white;
+    cursor: pointer;
+    transform: rotate(180deg);
+    }
+    .sidenav .closebtn:hover { 
+    transform: scale(0.95) rotate(180deg);
+    }
+    .sidenav .closebtn:active {
+    color:gold;
+    }
+    
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    
+    }
+    
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 127px;
+    z-index: 10;
+    border-radius: 5%;
+    }
+    
+    .dropdown-content span {
+    color: white;
+    font-size: 20px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    }
