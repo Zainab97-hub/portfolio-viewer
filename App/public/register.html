@@ -1,0 +1,60 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrierung</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <span id="nbtn" class="navbtn">&#9674;</span>
+    <div id="mySidenav" class="sidenav">
+      <span class="closebtn">&#9664;</span>
+      <div id="mySidenSpan">
+        <span onclick="window.location.href='/home'">Home</span>
+        <span id="profileButton"  onclick="window.location.href='/profile'" style="display: none" > Profil </span>
+        <span id="visitorButton" style="display: none" onclick="window.location.href='/visitor'" > Viewer </span>
+        <span id="adminButton" style="display: none" onclick="window.location.href='/admin'" > Editor </span>
+        <span id="studentButton" style="display: none" onclick="window.location.href='/student'" > Editor </span>
+        <span id="verwaltungsButton"  onclick="window.location.href='/users-Verwalten'" style="display: none" >Benutzer</span>
+        <span onclick="window.location.href=''">3D-Raum</span>
+      </div>
+    </div>
+    <div class="map-wrapper">
+      <div class="controls">
+        <img src="./images/logor.png" width="100px" height="40px" alt="Logo" />
+        <button id="loginButton" onclick="window.location.href='/login'"> Einloggen </button>
+        <button id="registerButton" onclick="window.location.href='/register'"> Registrieren </button>
+        <button id="logoutButton" style="display: none" onclick="logout()">Ausloggen</button>
+
+      </div>
+    </div>
+    <div class="container">
+      <div class="register-container">
+        <h1>Registrierung</h1>
+        <form id="registerForm" class="form-group">
+          <label class="label"  for="name">Name:</label>
+          <input  class="input" type="text" id="name" name="name" required />
+          <label class="label" for="email">Email:</label>
+          <input  class="input" type="email" id="email" name="email" required />
+          <label class="label" for="password">Passwort:</label>
+          <input  class="input" type="password" id="password" name="Passwort" required />
+          <button class="button" type="submit">Registrieren</button>
+        </form>
+      </div>
+    </div>
+    <footer>
+      <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/mr/kontakt-service/sekretariat'">Kontakt</span>
+      <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/impressum'">Impressum</span>
+      <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/datenschutz'">Datenschutz</span>
+      <span class="menu" onclick="window.location.href='/license'">LICENSE</span>
+    </footer>
+    
+    <script src="./js/register.js"></script>
+    <script src="./js/nav.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/navigation.js"></script>
+  </body>
+</html>

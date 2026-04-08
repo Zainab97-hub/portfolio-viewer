@@ -1,0 +1,92 @@
+<!-- profile.htm -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <span id="nbtn" class="navbtn">&#9674;</span>
+  <div id="mySidenav" class="sidenav">
+    <span class="closebtn">&#9664;</span>
+    <div id="mySidenSpan">
+      <span onclick="window.location.href='/home'">Home</span>
+      <span id="profileButton" onclick="window.location.href='/profile'">Profil</span>
+      <span id="visitorButton" style="display: none" onclick="window.location.href='/visitor'">Viewer</span>
+      <span id="adminButton" style="display: none" onclick="window.location.href='/admin'">Editor</span>
+      <span id="studentButton" style="display: none" onclick="window.location.href='/student'">Editor</span>
+      <span id="verwaltungsButton" onclick="window.location.href='/users-Verwalten'" style="display: none">Benutzer</span>
+      <span onclick="window.location.href=''">3D-Raum</span>
+    </div>
+  </div>
+  <div class="map-wrapper">
+    <div class="controls">
+      <img src="./images/logor.png" width="100px" height="40px" alt="Logo" />
+      <button id="logoutButton" onclick="logout()">Ausloggen</button>
+      <button id="loginButton" onclick="window.location.href='/login'">Einloggen</button>
+      <button id="registerButton" style="display: none" onclick="window.location.href='/register'">Registrieren</button>
+    </div>
+  </div>
+  <div class="container mt-4">
+    <div class="row centered-row">
+      <div class="col-4">
+        <div class="card">
+          <div class="avatar-ctn">
+            <img src="./images/avatar.png" class="avatar" alt="user profile picture" id="user-avatar">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title" id="user-name">Username</h5>
+            <p class="card-text"></p>
+            <span>Rolle: </span>
+            <span class="btn btn-role" id="user-role">Rolle</span>
+            <br/><br/>
+            <a class="btn btn-primary" id="user-email">Email</a>
+            <br/><br/>
+            <button id="change-password-button" class="btn btn-primary">Passwort ändern</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="password-popup" class="modal">
+    <div class="modalContent">
+      <span class="close">&times;</span>
+      <h3>Passwort ändern</h3>
+      <form id="change-password-form">
+        <div class="form-group-change">
+          <label for="old-password">Altes Passwort:</label>
+          <input type="password" id="old-password" name="oldPassword" required>
+        </div>
+        <div class="form-group-change">
+          <label for="new-password">Neues Passwort:</label>
+          <input type="password" id="new-password" name="newPassword" required>
+        </div>
+        <div class="form-group-change">
+          <label for="confirm-password">Neues Passwort bestätigen:</label>
+          <input type="password" id="confirm-password" name="confirmPassword" required>
+        </div>
+        <div class="form-buttons-change">
+          <button type="submit" class="button">Bestätigen</button>
+          <button type="button" id="cancel-change-password" class="button cancel">Abbrechen</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/mr/kontakt-service/sekretariat'">Kontakt</span>
+    <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/impressum'">Impressum</span>
+    <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/datenschutz'">Datenschutz</span>
+    <span class="menu" onclick="window.location.href='/license'">LICENSE</span>
+  </footer>
+
+  <script src="./js/auth.js"></script>
+  <script src="./js/profile.js"></script>
+  <script src="./js/nav.js"></script>
+  <script src="./js/navigation.js"></script>
+</body>
+</html>

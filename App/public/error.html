@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav>
+      <button onclick="window.location.href='/home'">Home</button>
+      <button id="loginButton" onclick="window.location.href='/login'"> Login </button>
+      <button id="registerButton" onclick="window.location.href='/register'"> Register </button>
+      <button id="profileButton" onclick="window.location.href='/profile'" style="display: none" > Profile </button>
+      <button id="visitorButton" onclick="window.location.href='/visitor'" style="display: none" > Map </button>
+      <button id="adminButton" onclick="window.location.href='/admin'" style="display: none" > Admin </button>
+      <button id="studentButton" onclick="window.location.href='/student'" style="display: none"> Student </button>
+      <button id="logoutButton" style="display: none">Logout</button>
+    </nav>
+    <div class="content">
+      <h1>ERROR</h1>
+    </div>
+    <script src="nav.js"></script>
+  </body>
+</html>

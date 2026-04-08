@@ -1,0 +1,43 @@
+<VirtualHost *:443>
+    ServerAdmin medialab@uni-wuppertal.de
+    ServerName vr-ausstellung.uni-wuppertal.de
+
+    SSLEngine on
+    SSLCertificateFile /etc/acme-bu/public/inkognitolab.eloc-www.uni-wuppertal.de.fullchain
+    SSLCertificateKeyFile /etc/acme-bu/private/inkognitolab.eloc-www.uni-wuppertal.de.key
+
+    # Enable HTTP/2, if available
+    Protocols h2 http/1.1
+
+    # HTTP Strict Transport Security (mod_headers is required) (63072000 seconds)
+    Header always set Strict-Transport-Security "max-age=63072000"
+
+    # Serve static files from the public directory
+    Alias /public /var/www/vr-ausstellung/public
+    <Directory /var/www/vr-ausstellung/public>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    </Directory>
+
+    # Deny access to public/uploads
+    <Directory /var/www/vr-ausstellung/public/uploads>
+        Require all denied
+    </Directory>
+
+    ProxyPreserveHost On
+    ProxyRequests Off
+    ProxyPass /public !
+    ProxyPass / http://localhost:3000/
+    ProxyPassReverse / http://localhost:3000/
+
+    <Proxy *>
+        Require all granted
+    </Proxy>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    # Possible values include: debug, info, notice, warn, error, crit, alert, emerg.
+    LogLevel warn
+</VirtualHost>

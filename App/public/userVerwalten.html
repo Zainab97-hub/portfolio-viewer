@@ -1,0 +1,97 @@
+<!-- userVerwalten.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benutzerverwaltung</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <span id="nbtn" class="navbtn">&#9674;</span>
+    <div id="mySidenav" class="sidenav">
+      <span class="closebtn">&#9664;</span>
+      <div id="mySidenSpan">
+        <span onclick="window.location.href='/home'">Home</span>
+        <span id="profileButton" onclick="window.location.href='/profile'" style="display: none"> Profil </span>
+        <span id="visitorButton" onclick="window.location.href='/visitor'" style="display: none"> Viewer </span>
+        <span id="adminButton" onclick="window.location.href='/admin'" style="display: none"> Editor </span>
+        <span id="studentButton" onclick="window.location.href='/student'" style="display: none"> Editor </span>
+        <span id="verwaltungsButton"  onclick="window.location.href='/users-Verwalten'" style="display: none" >Benutzer</span>
+        <span onclick="window.location.href=''">3D-Raum</span>
+      </div>
+    </div>
+    <div class="map-wrapper">
+        <div class="controls">
+            <img src="./images/logor.png" width="100px" height="40px" alt="Logo" />
+            <button id="loginButton" style="display: none" onclick="window.location.href='/login'">Einloggen</button>
+            <button id="registerButton" style="display: none" onclick="window.location.href='/register'"> Registrieren </button>
+            <button id="logoutButton" style="display: none" onclick="logout()">Ausloggen</button>
+        </div>
+        <div class="container-xl">
+            <div class="table-responsive">
+                <div class="table-wrapper">
+                    <div class="table-title">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h2>Benutzer</h2>
+                                <b>Verwaltung</b>
+                            </div>
+                            <div class="role-filters">
+                                <label>
+                                    <input type="checkbox" class="role-filter" value="admin"> Admin
+                                </label>
+                                <label>
+                                    <input type="checkbox" class="role-filter" value="student"> Student
+                                </label>
+                                <label>
+                                    <input type="checkbox" class="role-filter" value="visitor"> Besucher
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table id="userTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Datum</th>
+                                    <th>Rolle</th>
+                                    <th>Status</th>
+                                    <th>Aktion</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-body">
+                                <!-- Rows will be added dynamically here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/mr/kontakt-service/sekretariat'">Kontakt</span>
+        <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/impressum'">Impressum</span>
+        <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/datenschutz'">Datenschutz</span>
+        <span class="menu" onclick="window.location.href='/license'">LICENSE</span>
+    </footer>
+    <div id="confirmPopup" class="modalPopup">
+        <div class="modal-content-popup">
+            <div class="modal-body-popup">
+                <p id="confirmMessage"></p>
+            </div>
+            <div class="confirm-cancel-button">
+                <button id="confirmButton" class="button">Ja</button>
+                <button id="cancelButton" class="button">Nein</button>
+            </div>
+        </div>
+    </div>
+    <script src="./js/userVerwalten.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/nav.js"></script>
+    <script src="./js/navigation.js"></script>
+</body>
+</html>

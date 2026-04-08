@@ -1,0 +1,149 @@
+<!-- admin.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Editor</title>
+    <link rel="stylesheet" href="./js/package/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
+  </head>
+  <body>
+    
+    <span id="nbtn" class="navbtn">&#9674;</span>
+    <!-- <span id="currentYear">2024</span> -->
+    <div id="mySidenav" class="sidenav">
+      <span class="closebtn">&#9664;</span>
+      <div id="mySidenSpan">
+        <span onclick="window.location.href='/home'">Home</span>
+        <span id="profileButton" onclick="window.location.href='/profile'" style="display: none" > Profil </span>
+        <span id="visitorButton" onclick="window.location.href='/visitor'" style="display: none"> Viewer </span>
+        <span id="adminButton" onclick="window.location.href='/admin'" style="display: none" > Editor </span>
+        <span id="studentButton" onclick="window.location.href='/student'" style="display: none" > Editor </span>
+        <span id="verwaltungsButton"  onclick="window.location.href='/users-Verwalten'" style="display: none" >Benutzer</span>
+        <span onclick="window.location.href=''">3D-Raum</span>
+      </div>
+    
+    </div>
+
+    <div class="map-wrapper">
+      <div class="controls">
+        <img src="./images/logor.png" width="100px" height="40px" alt="Logo" />
+        <button id="loginButton" style="display: none" onclick="window.location.href='/login'">Einloggen</button>
+        <button id="registerButton" style="display: none" onclick="window.location.href='/register'"> Registrieren </button>
+        <button id="logoutButton" style="display: none" onclick="logout()">Ausloggen</button>
+        <div class="search-container">
+          <input type="text" id="searchQuery" placeholder="Titel Suche">
+          <div id="suggestionsContainer" class="suggestions-container"></div>
+          <select id="selectPerson">
+            <option value="">Name</option>
+          </select>
+          <select id="selectYear">
+            <option id="currentYear" style="display: none" value="">Laufendes Jahr</option>
+            <option value="addYear">+ Jahr hinzufügen</option>
+            <option value="deleteYear"> - Jahr löschen</option>
+          </select>
+          <div id="yearPopup" class="year-popup" style="display:none;">
+            <input type="text" id="newYearInput" placeholder="Jahr zum Hinzufügen">
+            <div class="NewYearButton">
+              <button id="confirmNewYearButton">Bestätigen</button>
+              <button id="cancelNewYearButton">Abbrechen</button>
+            </div>
+          </div>
+          <div id="deleteYearPopup" class="year-popup" style="display:none;">
+            <input type="text" id="deleteYearInput" placeholder="Jahr zur Löschung">
+            <div class="NewYearButton">
+              <button id="confirmDeleteYearButton">bestätigen</button>
+              <button id="cancelDeleteYearButton">Abbrechen</button>
+            </div>
+          </div>
+        </div> 
+      </div>
+      <div id="map"></div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="form-container" id="pinForm">
+      <form id="form">
+        <div class="form-left">
+          <label for="personName">Name:</label>
+          <p id="personName"></p>
+          <input type="hidden" id="pinId" name="pinId">
+          <label for="name">Titel:</label>
+          <input type="text" id="name" name="work" required>  
+          <label for="description">Beschreibung:</label>
+          <textarea id="description" name="description" required></textarea>
+          <label for="url">URL:</label>
+          <input type="text" id="url" name="url" required>
+          
+        </div>
+        <div class="form-right">
+          <details>
+            <summary>Bild</summary>
+            <input type="file" id="image" name="image">
+            <img id="imagePreview" class="image-preview" alt="Bildvorschau">
+          </details>
+          <details>
+            <summary>Audio</summary>
+            <input type="file" id="audio" name="audio">
+            <audio id="audioPreview" class="audio-preview" controls style="display:none;"></audio>
+          </details>
+          <details>
+            <summary>Video</summary>
+            <input type="file" id="video" name="video">
+            <video id="videoPreview" class="video-preview" controls style="display:none;"></video>
+          </details>
+          <details>
+            <summary>PDF</summary>
+            <input type="file" id="pdf" name="pdf">
+            <!-- <a id="pdfPreview" class="pdf-preview" href="#" target="_blank" style="display:none;">PDF anzeigen</a> -->
+            <embed id="pdfPreview" class="pdf-preview" type="application/pdf" height="270px" width="679" frameborder="0" style="display:none;"></embed>
+
+          </details>
+          <details>
+            <summary>360° Panorama</summary>
+            <input type="file" id="panorama" name="panorama">
+            <div id="file360Container" style="height: 400px; display: none;"></div>
+          </details>
+
+          <details>
+            <summary>3D Objekt</summary>
+            <input type="file" id="ThreeDObject" name="ThreeDObject">
+            <model-viewer id="ThreeDObjectPreview" class="_3d-preview" src="" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" shadow-intensity="1" autoplay style="display: none;">
+              <div class="progress-bar hide" slot="progress-bar">
+                <div class="update-bar"></div>
+              </div>
+            </model-viewer>
+          </details>
+          
+        </div>
+        <div class="form-buttons-container">
+          <div class="form-buttons">
+            <button type="submit">Speichern</button>
+            <button type="button" id="deleteBtn" style="display: none;">Löschen</button>
+            <button type="button" id="closeBtn">Schließen</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <footer>
+      <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/mr/kontakt-service/sekretariat'">Kontakt</span>
+      <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/impressum'">Impressum</span>
+      <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/datenschutz'">Datenschutz</span>
+      <span class="menu" onclick="window.location.href='/license'">LICENSE</span>
+    </footer>
+    <script src="./js/package/leaflet/dist/leaflet.js"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <script type="module"  src="./js/admin.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/nav.js"></script>
+    <script src="./js/navigation.js"></script>
+  </body>
+</html>
+

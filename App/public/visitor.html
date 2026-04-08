@@ -1,0 +1,78 @@
+<!-- Visitor.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viewer</title>
+    <link rel="stylesheet" href="./js/package/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
+</head>
+<body>
+    <span id="nbtn" class="navbtn">&#9674;</span>
+    <div id="mySidenav" class="sidenav">
+        <span class="closebtn">&#9664;</span>
+        <div id="mySidenSpan">
+            <span onclick="window.location.href='/home'">Home</span>
+            <span id="profileButton" onclick="window.location.href='/profile'" style="display: none">Profil</span>
+            <span id="visitorButton" onclick="window.location.href='/visitor'" style="display: none">Viewer</span>
+            <span id="adminButton" onclick="window.location.href='/admin'" style="display: none">Editor</span>
+            <span id="studentButton" onclick="window.location.href='/student'" style="display: none">Editor</span>
+            <span id="verwaltungsButton"  onclick="window.location.href='/users-Verwalten'" style="display: none" >Benutzer</span>
+            <span onclick="window.location.href=''">3D-Raum</span>
+        </div>
+    </div>
+
+    <div class="map-wrapper">
+        <div class="controls">
+            <img src="./images/logor.png" width="100px" height="40px" alt="Logo">
+            <button id="loginButton" style="display: none" onclick="window.location.href='/login'">Einloggen</button>
+            <button id="registerButton" style="display: none" onclick="window.location.href='/register'">Registrieren</button>
+            <button id="logoutButton" style="display: none" onclick="logout()">Ausloggen</button>
+            <div class="search-container">
+                <input type="text" id="searchQuery" placeholder="Titel Suche">
+                <div id="suggestionsContainer" class="suggestions-container"></div>
+                <select id="selectPerson">
+                    <option value="">Name</option>
+                </select>
+                <select id="selectYear">
+                    <option id="currentYear" style="display: none" value="">2022</option>
+                </select>
+                <input type="text" id="newYearInput" placeholder="Jahr" style="display:none;">
+            </div>
+        </div>
+        <div id="map"></div>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Details des Werkes</h2>
+                    <span class="close" id="closeModal">&times;</span>
+                </div>
+                  <div class="modal-body">
+                      <div id="modalText" class="popup-text"></div>
+                      <div id="modalFiles" class="popup-files"></div>
+                      <div id="file360Container" style="height: 400px; display: none;"></div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/mr/kontakt-service/sekretariat'">Kontakt</span>
+        <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/impressum'">Impressum</span>
+        <span class="menu" onclick="window.location.href='https://mr.uni-wuppertal.de/datenschutz'">Datenschutz</span>
+        <span class="menu" onclick="window.location.href='/license'">LICENSE</span>
+    </footer>
+
+    <script src="./js/package/leaflet/dist/leaflet.js"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <script type="module" src="./js/visitor.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/nav.js"></script>
+    <script src="./js/navigation.js"></script>
+</body>
+</html>

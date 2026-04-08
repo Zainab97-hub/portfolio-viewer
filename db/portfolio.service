@@ -1,0 +1,17 @@
+[Unit]
+Description=Node.js Express Server
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/node /var/www/vr-ausstellung/server.js
+WorkingDirectory=/var/www/vr-ausstellung
+Restart=always
+User=albasha-hk
+Group=medialab
+Environment=PATH=/usr/local/bin
+Environment=NODE_ENV=production
+StandardOutput=file:/var/log/portfolio.stdout.log
+StandardError=file:/var/log/portfolio.stderr.log
+
+[Install]
+WantedBy=multi-user.target

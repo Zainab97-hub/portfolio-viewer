@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  ###> doctrine/doctrine-bundle ###
+  database:
+    image: 'mysql:latest'
+    environment:
+      MYSQL_ROOT_PASSWORD: "Xr6ONXN4ng^4"
+      MYSQL_DATABASE: portfolio
+
+    ports:
+      - "3307:3306"
+
+volumes:
+  ###> doctrine/doctrine-bundle ###
+  database_data:
+###< doctrine/doctrine-bundle ###
